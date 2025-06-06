@@ -204,9 +204,13 @@ Model *Collaborative Filtering* pada proyek ini dilatih untuk memprediksi rating
 
 Saat model diberi input **'Taman Pintar Yogyakarta'**, 5 rekomendasi teratas yang dihasilkan adalah:
 
-|
-
-| **Place\_Id** | **Place\_Name** | **Category** | **Rating** | **similarity\_score** | | 206 | Wisata Kaliurang | Cagar Alam | 4.4 | 0.192158 | | 98 | Taman Pelangi Yogyakarta | Taman Hiburan | 4.3 | 0.148100 | | 90 | Kampung Wisata Taman Sari | Taman Hiburan | 4.6 | 0.147447 | | 203 | Galaxy Waterpark Jogja | Taman Hiburan | 4.3 | 0.147205 | | 100 | Taman Budaya Yogyakarta | Budaya | 4.5 | 0.140009 |
+| **Place\_Id** | **Place\_Name** | **Category** | **Rating** | **similarity\_score** |
+| ----- | ----- | ----- | ----- | ----- |
+| 206 | Wisata Kaliurang | Cagar Alam | 4.4 | 0.192158 |
+| 98 | Taman Pelangi Yogyakarta | Taman Hiburan | 4.3 | 0.148100 |
+| 90 | Kampung Wisata Taman Sari | Taman Hiburan | 4.6 | 0.147447 |
+| 203 | Galaxy Waterpark Jogja | Taman Hiburan | 4.3 | 0.147205 |
+| 100 | Taman Budaya Yogyakarta | Budaya | 4.5 | 0.140009 |
 
 **Analisis:** Rekomendasi yang diberikan cukup relevan, sebagian besar adalah "Taman Hiburan" atau "Cagar Alam," yang sesuai dengan karakteristik 'Taman Pintar'.
 
@@ -219,6 +223,12 @@ Metrik evaluasi pada data validasi di akhir pelatihan adalah:
 
 Visualisasi proses pelatihan menunjukkan bahwa model berhasil belajar dengan baik. Untuk **User ID 1**, 5 rekomendasi teratas yang dihasilkan adalah:
 
-| **Place\_Id** | **Place\_Name** | **Category** | **Rating** | **Predicted\_Normalized\_Rating** | | 139 | Puncak Gunung Api Purba \- Nglanggeran | Cagar Alam | 4.7 | 0.769608 | | 138 | Jogja Exotarium | Taman Hiburan | 4.4 | 0.730769 | | 132 | Air Terjun Kedung Pedut | Cagar Alam | 4.5 | 0.723506 | | 134 | Desa Wisata Gamplong | Taman Hiburan | 4.4 | 0.712936 | | 136 | Grojogan Watu Purbo Bangunrejo | Taman Hiburan | 4.5 | 0.710067 |
+| **Place\_Id** | **Place\_Name** | **Category** | **Rating** | **Predicted\_Normalized\_Rating** |
+| ----- | ----- | ----- | ----- | ----- |
+| 139 | Puncak Gunung Api Purba \- Nglanggeran | Cagar Alam | 4.7 | 0.769608 |
+| 138 | Jogja Exotarium | Taman Hiburan | 4.4 | 0.730769 |
+| 132 | Air Terjun Kedung Pedut | Cagar Alam | 4.5 | 0.723506 |
+| 134 | Desa Wisata Gamplong | Taman Hiburan | 4.4 | 0.712936 |
+| 136 | Grojogan Watu Purbo Bangunrejo | Taman Hiburan | 4.5 | 0.710067 |
 
 **Analisis:** Model ini merekomendasikan tempat-tempat populer yang mungkin disukai oleh User ID 1 berdasarkan selera pengguna lain, menunjukkan kemampuannya memberikan rekomendasi personal.
