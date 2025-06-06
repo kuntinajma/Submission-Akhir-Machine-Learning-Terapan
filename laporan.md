@@ -188,7 +188,7 @@ Model *Content-Based Filtering* dievaluasi menggunakan dua pendekatan, yaitu kua
 
 Model *Collaborative Filtering* pada proyek ini dilatih untuk memprediksi rating yang akan diberikan pengguna. Oleh karena itu, kinerjanya dapat diukur secara kuantitatif menggunakan metrik evaluasi untuk masalah regresi. Metrik utama yang digunakan adalah **Root Mean Squared Error (RMSE)**.
 
-* **Formula:** `RMSE = sqrt(MSE) = sqrt((1/n) * Σ(y_i - ŷ_i)²)` mana:  
+* **Formula RMSE:** `RMSE=n1​∑i=1n​(yi​−y^​i​)2​Di` mana:  
   * adalah jumlah total data.  
   * yi​ adalah nilai rating aktual.  
   * y^​i​ adalah nilai rating yang diprediksi oleh model.  
