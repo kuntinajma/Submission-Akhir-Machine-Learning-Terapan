@@ -12,7 +12,7 @@ Proyek ini bertujuan untuk mengembangkan dan membandingkan dua pendekatan utama 
 
 ### **Referensi**
 
-* Adminwarta. 2024\. Target Kunjungan Wisatawan ke Yogyakarta Tahun 2024 Diyakini Terlampaui. *Warta Jogja Kota*. URL: [https://warta.jogjakota.go.id/detail/index/37070](https://warta.jogjakota.go.id/detail/index/37070). Diakses pada 7 Juni 2025\.  
+* Adminwarta. 2024\. *Target Kunjungan Wisatawan ke Yogyakarta Tahun 2024 Diyakini Terlampaui*. URL: [https://warta.jogjakota.go.id/detail/index/37070](https://warta.jogjakota.go.id/detail/index/37070). Diakses pada 7 Juni 2025\.  
 * Hendrawan, I.R., Indraswari, A.D., Antara, P., & Widihasani, A.F. 2022\. Elisitasi Kebutuhan Smart Tourism untuk Rekomendasi Pariwisata Yogyakarta. *JIKO (Jurnal Informatika dan Komputer)*, 6(2), 176-184.  
 * Mi'roj, M.I. 2023\. Penerapan Metode Item Based Collaborative Filtering untuk Membangun Sistem Rekomendasi Pariwisata (Studi Kasus Kabupaten Sidoarjo)*.* *Skripsi*. Universitas Dinamika.  
 * Musyrifah, Sulfayanti, Ap, I., Asmawati, & Zulkarnaim, N. 2022\. Sistem Rekomendasi Berbasis-Konten Untuk Pengembangan Web Smart Tourism. *Jurnal Komputer Terapan*. 8(1): 143-150.  
