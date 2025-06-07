@@ -223,7 +223,7 @@ Untuk model *Content-Based Filtering* (CBF), evaluasi performa dapat dilakukan s
   Ini adalah rata-rata harmonik dari Precision dan Recall. Metrik ini berguna untuk mencari keseimbangan antara Precision dan Recall, terutama jika terjadi kondisi di mana salah satu metrik sangat tinggi sementara yang lain sangat rendah.
 
   **Formula**   
-  ![Formula F1](https://www.google.com/imgres?q=formula%20f1%20score&imgurl=https%3A%2F%2Fimages.prismic.io%2Fencord%2F0ef9c82f-2857-446e-918d-5f654b9d9133_Screenshot%2B%252849%2529.png%3Fauto%3Dcompress%2Cformat&imgrefurl=https%3A%2F%2Fencord.com%2Fglossary%2Ff1-score-definition%2F&docid=0_pkJwxROuaAaM&tbnid=thnh9W0TqFaTqM&vet=12ahUKEwib1rGbv9-NAxV9V2wGHSW7DXMQM3oECBgQAA..i&w=623&h=182&hcb=2&ved=2ahUKEwib1rGbv9-NAxV9V2wGHSW7DXMQM3oECBgQAA)
+  ![Formula F1](https://images.prismic.io/encord/0ef9c82f-2857-446e-918d-5f654b9d9133_Screenshot+%2849%29.png?auto=compress,format)
 
 ##### **Hasil Metrik Kuantitatif**  
 Berdasarkan hasil eksekusi pada *notebook*, diperoleh nilai metrik sebagai berikut:
@@ -253,7 +253,7 @@ Model *Collaborative Filtering* (CF) pada proyek ini dilatih untuk memprediksi r
 **Metrik yang Digunakan** yaitu **Root Mean Squared Error (RMSE)** yang digunakan untuk mengevaluasi sistem rekomendasi yang memprediksi rating karena kemampuannya memberikan bobot lebih pada kesalahan yang besar.
 
   **Formula RMSE**  
-  ![Formula RMSE](https://i.imgur.com/your-image-code.png)
+  ![Formula RMSE](https://miro.medium.com/v2/resize:fit:966/1*lqDsPkfXPGen32Uem1PTNg.png)
   
   **n** adalah jumlah total data pada set validasi.  
   **∑** adalah simbol sigma yang berarti "jumlah total dari".  
