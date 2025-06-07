@@ -193,42 +193,41 @@ Evaluasi performa model dilakukan dengan pendekatan yang berbeda untuk setiap je
 
 #### **1\. Content-Based Filtering (CBF)**
 
-Untuk model *Content-Based Filtering* (CBF), evaluasi performa dapat dilakukan secara kuantitatif dengan metrik klasifikasi standar seperti **Precision**, **Recall**, dan **F1-Score**. Metrik ini mengukur kemampuan model dalam merekomendasikan item yang relevan berdasarkan histori pengguna.  
-**Metrik Evaluasi Kuantitatif:**
+Untuk model *Content-Based Filtering* (CBF), evaluasi performa dapat dilakukan secara kuantitatif dengan metrik klasifikasi standar seperti **Precision**, **Recall**, dan **F1-Score**. Metrik ini mengukur kemampuan model dalam merekomendasikan item yang relevan berdasarkan histori pengguna. 
+
+##### **Metrik Evaluasi Kuantitatif:**
 
 * **Precision**  
   Metrik ini menjawab pertanyaan, "Dari semua tempat yang direkomendasikan, berapa persen yang benar-benar relevan bagi pengguna?" Precision berfokus pada kualitas dari rekomendasi yang diberikan.
-
-* **Formula:**  
+  **Formula:**  
   ![Formula Precision](https://images.prismic.io/encord/ccd903d0-3d97-4d9a-b6b7-7c31773e4676_Precision+-+Mathematical+Formula+-+Encord.png?auto=compress,format)
 
-- **True Positives (TP):** Jumlah tempat yang direkomendasikan dan benar-benar disukai pengguna.  
-- **False Positives (FP):** Jumlah tempat yang direkomendasikan namun tidak disukai pengguna.  
+  **True Positives (TP):** Jumlah tempat yang direkomendasikan dan benar-benar disukai pengguna.  
+  **False Positives (FP):** Jumlah tempat yang direkomendasikan namun tidak disukai pengguna.  
 
 * **Recall**  
   Metrik ini menjawab pertanyaan, "Dari semua tempat yang seharusnya direkomendasikan, berapa persen yang berhasil ditemukan oleh model?" Recall berfokus pada cakupan atau kelengkapan dari rekomendasi.
 
-* **Formula:**  
+  **Formula:**  
   ![Formula Recall](https://images.prismic.io/encord/3c0173c9-409e-4f84-a53f-7073ea00bca9_Recall+-+Mathematical+Formula+-+Encord.png?auto=compress,format)
 
-- **True Positives (TP):** Jumlah tempat yang direkomendasikan dan benar-benar disukai pengguna.  
-- **False Positives (FP):** Jumlah tempat yang direkomendasikan namun tidak disukai pengguna.  
-- **False Negatives (FN):** Jumlah tempat yang disukai pengguna namun tidak berhasil direkomendasikan oleh model. 
+  **True Positives (TP):** Jumlah tempat yang direkomendasikan dan benar-benar disukai pengguna.  
+  **False Positives (FP):** Jumlah tempat yang direkomendasikan namun tidak disukai pengguna.  
+  **False Negatives (FN):** Jumlah tempat yang disukai pengguna namun tidak berhasil direkomendasikan oleh model. 
 
 * **F1-Score**  
   Ini adalah rata-rata harmonik dari Precision dan Recall. Metrik ini berguna untuk mencari keseimbangan antara Precision dan Recall, terutama jika terjadi kondisi di mana salah satu metrik sangat tinggi sementara yang lain sangat rendah.
-
-* **Formula:**   
+  **Formula:**   
   ![Formula F1](https://www.google.com/imgres?q=formula%20f1%20score&imgurl=https%3A%2F%2Fimages.prismic.io%2Fencord%2F0ef9c82f-2857-446e-918d-5f654b9d9133_Screenshot%2B%252849%2529.png%3Fauto%3Dcompress%2Cformat&imgrefurl=https%3A%2F%2Fencord.com%2Fglossary%2Ff1-score-definition%2F&docid=0_pkJwxROuaAaM&tbnid=thnh9W0TqFaTqM&vet=12ahUKEwib1rGbv9-NAxV9V2wGHSW7DXMQM3oECBgQAA..i&w=623&h=182&hcb=2&ved=2ahUKEwib1rGbv9-NAxV9V2wGHSW7DXMQM3oECBgQAA)
 
-**Hasil Metrik Kuantitatif**  
+##### **Hasil Metrik Kuantitatif**  
 Berdasarkan hasil eksekusi pada *notebook*, diperoleh nilai metrik sebagai berikut:
 
 * **Rata-rata Precision:** **0.0354**  
 * **Rata-rata Recall:** **0.0936**  
 * **F1-Score:** **0.0514**
 
-**Analisis Kualitatif (Relevansi Hasil):**   
+##### **Analisis Kualitatif (Relevansi Hasil):**   
 Karena evaluasi kuantitatif memiliki batasan, pendekatan **evaluasi kualitatif** juga penting. Perlu ditekankan bahwa **Cosine Similarity** bukanlah metrik evaluasi performa, melainkan bagian dari proses *modeling*.  
 Evaluasi kualitatif dilakukan dengan menganalisis relevansi 5 item teratas yang direkomendasikan. Saat model diberi input **'Taman Pintar Yogyakarta'**, rekomendasi yang dihasilkan adalah sebagai berikut:
 
@@ -245,21 +244,23 @@ Hasil di atas menunjukkan model mampu memberikan rekomendasi yang relevan lintas
 #### **2\. Collaborative Filtering (CF)**
 
 Model *Collaborative Filtering* (CF) pada proyek ini dilatih untuk memprediksi rating, sehingga kinerjanya diukur secara kuantitatif menggunakan metrik evaluasi untuk masalah regresi.  
+
 **Metrik yang Digunakan** yaitu **Root Mean Squared Error (RMSE)** yang digunakan untuk mengevaluasi sistem rekomendasi yang memprediksi rating karena kemampuannya memberikan bobot lebih pada kesalahan yang besar.
 
-* **Formula RMSE:**  
+  **Formula RMSE:**  
   ![Formula RMSE](https://i.imgur.com/your-image-code.png)
   Di mana:  
-  * n adalah jumlah total data pada set validasi.  
-  * ∑ adalah simbol sigma yang berarti "jumlah total dari".  
-  * yi​ adalah nilai rating aktual yang diberikan pengguna untuk item ke-i.  
-  * y^​i​ adalah nilai rating yang diprediksi oleh model untuk item ke-i.  
-  * (yi​−y^​i​)2 adalah kuadrat dari selisih (error) antara rating aktual dan prediksi.  
-* **Cara Kerja dan Interpretasi**  
+  **n** adalah jumlah total data pada set validasi.  
+  **∑** adalah simbol sigma yang berarti "jumlah total dari".  
+  **yi**​ adalah nilai rating aktual yang diberikan pengguna untuk item ke-i.  
+  **y^​i**​ adalah nilai rating yang diprediksi oleh model untuk item ke-i.  
+  **(yi​−y^​i​)2** adalah kuadrat dari selisih (error) antara rating aktual dan prediksi.  
+
+  **Cara Kerja dan Interpretasi**  
   RMSE bekerja dengan cara menghitung selisih (error) untuk setiap prediksi, mengkuadratkannya, menghitung rata-ratanya, lalu meng-akarkannya kembali. Langkah **pengkuadratan** adalah kunci: ini membuat error yang lebih besar memiliki dampak yang jauh lebih signifikan terhadap skor akhir dibandingkan error kecil. Dengan kata lain, model akan "dihukum" lebih berat jika membuat satu prediksi yang sangat salah daripada membuat beberapa prediksi yang sedikit salah.  
   **Semakin rendah nilai RMSE, semakin baik kinerja model** karena ini menandakan bahwa prediksi model secara rata-rata lebih dekat dengan nilai rating yang sebenarnya.
 
-**Hasil Metrik Evaluasi**  
+##### **Hasil Metrik Evaluasi**  
 Berdasarkan proses pelatihan di *notebook* (epoch ke-100), diperoleh nilai metrik pada data validasi sebagai berikut:
 
 * **Final Validation RMSE:** **0.3836**  
