@@ -110,8 +110,11 @@ Tahapan persiapan data merupakan fase krusial dalam pengembangan model *machine 
 Langkah-langkah persiapan data yang dilakukan dalam proyek ini adalah sebagai berikut:
 
 1. **Penanganan Duplikat**:  
-   * **Proses**: Dilakukan pengecekan dan penghapusan data duplikat pada `df_rating`. Ditemukan dan dihapus sebanyak 79 baris data yang identik.  
-   * **Alasan**: Menjamin setiap interaksi rating bersifat unik dan meningkatkan kualitas data input untuk model.  
+   * **Proses**: Dilakukan pengecekan dan penghapusan data duplikat pada:
+      - `df_tourism`: Dilakukan pengecekan duplikat pada data destinasi wisata. Hasilnya, tidak ditemukan adanya baris data yang identik.
+      - `df_rating`: Ditemukan dan dihapus sebanyak 79 baris data rating yang duplikat.
+      - `df_user`: Dilakukan pengecekan duplikat berdasarkan kolom User_Id untuk memastikan setiap pengguna terdaftar hanya satu kali. Hasilnya, tidak ditemukan adanya User_Id yang duplikat.  
+   * **Alasan**: Menjamin setiap interaksi setiap data bersifat unik dan meningkatkan kualitas data input untuk model.  
 2. **Filtering Data Yogyakarta**:  
    * **Proses**: `df_tourism` difilter untuk hanya menyisakan baris dengan `City` berisi 'Yogyakarta'. Hasilnya, diperoleh dataframe baru (`df_tourism_yogya`) dengan 126 destinasi.  
    * **Alasan**: Memfokuskan cakupan proyek agar sesuai dengan tujuan.  
