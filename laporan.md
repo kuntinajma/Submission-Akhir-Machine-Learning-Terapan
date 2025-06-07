@@ -202,7 +202,8 @@ Untuk model *Content-Based Filtering* (CBF), evaluasi performa dapat dilakukan s
 
 * **Precision**  
   Metrik ini menjawab pertanyaan, "Dari semua tempat yang direkomendasikan, berapa persen yang benar-benar relevan bagi pengguna?" Precision berfokus pada kualitas dari rekomendasi yang diberikan.
-  **Formula:**  
+
+  **Formula**  
   ![Formula Precision](https://images.prismic.io/encord/ccd903d0-3d97-4d9a-b6b7-7c31773e4676_Precision+-+Mathematical+Formula+-+Encord.png?auto=compress,format)
 
   **True Positives (TP):** Jumlah tempat yang direkomendasikan dan benar-benar disukai pengguna.  
@@ -211,7 +212,7 @@ Untuk model *Content-Based Filtering* (CBF), evaluasi performa dapat dilakukan s
 * **Recall**  
   Metrik ini menjawab pertanyaan, "Dari semua tempat yang seharusnya direkomendasikan, berapa persen yang berhasil ditemukan oleh model?" Recall berfokus pada cakupan atau kelengkapan dari rekomendasi.
 
-  **Formula:**  
+  **Formula**  
   ![Formula Recall](https://images.prismic.io/encord/3c0173c9-409e-4f84-a53f-7073ea00bca9_Recall+-+Mathematical+Formula+-+Encord.png?auto=compress,format)
 
   **True Positives (TP):** Jumlah tempat yang direkomendasikan dan benar-benar disukai pengguna.  
@@ -220,7 +221,8 @@ Untuk model *Content-Based Filtering* (CBF), evaluasi performa dapat dilakukan s
 
 * **F1-Score**  
   Ini adalah rata-rata harmonik dari Precision dan Recall. Metrik ini berguna untuk mencari keseimbangan antara Precision dan Recall, terutama jika terjadi kondisi di mana salah satu metrik sangat tinggi sementara yang lain sangat rendah.
-  **Formula:**   
+
+  **Formula**   
   ![Formula F1](https://www.google.com/imgres?q=formula%20f1%20score&imgurl=https%3A%2F%2Fimages.prismic.io%2Fencord%2F0ef9c82f-2857-446e-918d-5f654b9d9133_Screenshot%2B%252849%2529.png%3Fauto%3Dcompress%2Cformat&imgrefurl=https%3A%2F%2Fencord.com%2Fglossary%2Ff1-score-definition%2F&docid=0_pkJwxROuaAaM&tbnid=thnh9W0TqFaTqM&vet=12ahUKEwib1rGbv9-NAxV9V2wGHSW7DXMQM3oECBgQAA..i&w=623&h=182&hcb=2&ved=2ahUKEwib1rGbv9-NAxV9V2wGHSW7DXMQM3oECBgQAA)
 
 ##### **Hasil Metrik Kuantitatif**  
@@ -250,9 +252,9 @@ Model *Collaborative Filtering* (CF) pada proyek ini dilatih untuk memprediksi r
 
 **Metrik yang Digunakan** yaitu **Root Mean Squared Error (RMSE)** yang digunakan untuk mengevaluasi sistem rekomendasi yang memprediksi rating karena kemampuannya memberikan bobot lebih pada kesalahan yang besar.
 
-  **Formula RMSE:**  
+  **Formula RMSE**  
   ![Formula RMSE](https://i.imgur.com/your-image-code.png)
-  Di mana:  
+  
   **n** adalah jumlah total data pada set validasi.  
   **∑** adalah simbol sigma yang berarti "jumlah total dari".  
   **yi**​ adalah nilai rating aktual yang diberikan pengguna untuk item ke-i.  
