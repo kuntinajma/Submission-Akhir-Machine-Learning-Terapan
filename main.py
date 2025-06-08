@@ -11,7 +11,6 @@ from Sastrawi.StopWordRemover.StopWordRemoverFactory import StopWordRemoverFacto
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
-from IPython.display import display
 import pickle
 import os
 import warnings
@@ -120,37 +119,37 @@ df_user = df_user_raw.copy()
 print("DataFrame berhasil dicopy untuk mengantisipasi data oroginal masih tersimpan rapi.")
 
 print("\n=================== Informasi Umum dan Variabel Dataset ==============")
-print("=================== df_tourism (Tempat Wisata) ==============")
+print("--- df_tourism (Tempat Wisata) ---")
 print("Info Detail Variabel (df_tourism):")
 df_tourism.info()
 print("\nContoh Data Awal (df_tourism):")
-print(df_tourism.head(3))
+print(df_tourism.head(3).to_string())
 print("\nContoh Data Akhir (df_tourism):")
-print(df_tourism.tail(3))
+print(df_tourism.tail(3).to_string())
 print("\nStatistik Deskriptif Harga (Price) dan Rating Publik (Rating) pada df_tourism:")
 print(df_tourism[['Price', 'Rating']].describe())
 print("\nCek nilai null di df_tourism:")
 print(df_tourism.isnull().sum().to_frame(name='jumlah_null'))
 
-print("\n=================== df_rating (Rating Pengguna) ==============")
+print("\n--- df_rating (Rating Pengguna) ---")
 print("Info Detail Variabel (df_rating):")
 df_rating.info()
 print("\nContoh Data Awal (df_rating):")
-print(df_rating.head(3))
+print(df_rating.head(3).to_string())
 print("\nContoh Data Akhir (df_rating):")
-print(df_rating.tail(3))
+print(df_rating.tail(3).to_string())
 print("\nStatistik Deskriptif Rating Pengguna (Place_Ratings) pada df_rating:")
 print(df_rating['Place_Ratings'].describe().to_frame(name='statistik_place_ratings'))
 print("\nCek nilai null di df_rating:")
 print(df_rating.isnull().sum().to_frame(name='jumlah_null'))
 
-print("\n=================== df_user (Pengguna) ==============")
+print("\n--- df_user (Pengguna) ---")
 print("Info Detail Variabel (df_user):")
 df_user.info()
 print("\nContoh Data Awal (df_user):")
-print(df_user.head(3))
+print(df_user.head(3).to_string())
 print("\nContoh Data Akhir (df_user):")
-print(df_user.tail(3))
+print(df_user.tail(3).to_string())
 print("\nStatistik Deskriptif Usia (Age) pada df_user:")
 print(df_user['Age'].describe().to_frame(name='statistik_usia'))
 print("\nCek nilai null di df_user:")
@@ -165,9 +164,10 @@ print(rating_counts.sort_values(by='Rating').to_string(index=False))
 plt.figure(figsize=(8, 5))
 sns.countplot(x='Place_Ratings', data=df_rating, palette='viridis', order=sorted(df_rating['Place_Ratings'].unique()))
 plt.title('Distribusi Rating Pengguna (Keseluruhan Dataset)')
-plt.savefig(os.path.join(plot_dir, 'distribusi_rating_pengguna.png'))
+plt.savefig(os.path.join(plot_dir, 'distribusi_rating_pengguna.png'), bbox_inches='tight')
+plt.close()
 print(f"Insight: Visualisasi menunjukkan rating yang paling sering diberikan oleh pengguna adalah {most_frequent_rating}.")
-print(f"Visualisasi 'Distribusi Rating Pengguna' disimpan di folder '{plot_dir}'.")
+print(f"Plot 'distribusi_rating_pengguna.png' telah disimpan di folder '{plot_dir}'.")
 
 
 print("\n=================== Distribusi Sebaran Destinasi Berdasarkan Kota ==============")
@@ -177,8 +177,9 @@ print(top_cities.to_string(index=False))
 plt.figure(figsize=(10, 5))
 sns.barplot(x='Kota', y='Jumlah Tempat Wisata', data=top_cities, palette='mako')
 plt.title('Top 5 Kota dengan Jumlah Tempat Wisata Terbanyak')
-plt.savefig(os.path.join(plot_dir, 'distribusi_destinasi_kota.png'))
-print(f"Insight: Berdasarkan data, 5 kota dengan destinasi wisata terbanyak adalah {top_cities['Kota'].tolist()}. Ini menegaskan bahwa fokus dataset adalah pada pusat-pusat pariwisata utama di Indonesia, dengan {top_cities['Kota'].iloc[0]} memiliki jumlah terbanyak yaitu {top_cities['Jumlah Tempat Wisata'].iloc[0]} destinasi.")
+plt.savefig(os.path.join(plot_dir, 'distribusi_destinasi_kota.png'), bbox_inches='tight')
+plt.close()
+print(f"Insight: Berdasarkan data, 5 kota dengan destinasi wisata terbanyak adalah {top_cities['Kota'].tolist()}.")
 print(f"Visualisasi 'Top 5 Kota' disimpan di folder '{plot_dir}'.")
 
 print("\n=================== Distribusi Sebaran Destinasi Berdasarkan Kategori ==============")
@@ -188,8 +189,9 @@ print(top_categories_all.to_string(index=False))
 plt.figure(figsize=(10, 5))
 sns.barplot(x='Kategori', y='Jumlah Tempat Wisata', data=top_categories_all, palette='crest')
 plt.title('Top 5 Kategori Tempat Wisata (Keseluruhan Dataset)')
-plt.savefig(os.path.join(plot_dir, 'distribusi_destinasi_kategori.png'))
-print(f"Insight: Kategori wisata paling populer di seluruh dataset adalah '{top_categories_all['Kategori'].iloc[0]}' dengan jumlah {top_categories_all['Jumlah Tempat Wisata'].iloc[0]} tempat.")
+plt.savefig(os.path.join(plot_dir, 'distribusi_destinasi_kategori.png'), bbox_inches='tight')
+plt.close()
+print(f"Insight: Kategori wisata paling populer di seluruh dataset adalah '{top_categories_all['Kategori'].iloc[0]}'.")
 print(f"Visualisasi 'Top 5 Kategori' disimpan di folder '{plot_dir}'.")
 
 
@@ -204,12 +206,13 @@ age_q3 = int(age_stats['75%'])
 plt.figure(figsize=(10, 6))
 sns.histplot(data=df_user, x='Age', bins=20, kde=True, color='salmon')
 plt.title('Distribusi Usia Pengguna')
-plt.savefig(os.path.join(plot_dir, 'distribusi_usia_pengguna.png'))
-print(f"Insight: Distribusi usia pengguna menunjukkan konsentrasi yang kuat antara usia {age_q1} hingga {age_q3} tahun, dengan median usia di sekitar {age_median} tahun.")
+plt.savefig(os.path.join(plot_dir, 'distribusi_usia_pengguna.png'), bbox_inches='tight')
+plt.close()
+print(f"Insight: Distribusi usia pengguna menunjukkan konsentrasi yang kuat antara usia {age_q1} hingga {age_q3} tahun.")
 print(f"Visualisasi 'Distribusi Usia Pengguna' disimpan di folder '{plot_dir}'.")
 
 print("\n=================== Data Preprocessing ==============")
-print("=================== Pegecekan dan Penanganan Nilai Duplikat ==============")
+print("=================== Pengecekan dan Penanganan Nilai Duplikat ==============")
 jumlah_data_awal_tourism = len(df_tourism)
 jumlah_duplikat_tourism = df_tourism.duplicated().sum()
 print(f"df_tourism - Jumlah data awal: {jumlah_data_awal_tourism}")
@@ -247,7 +250,7 @@ df_rating_yogya_cf['Place_Ratings'] = pd.to_numeric(df_rating_yogya_cf['Place_Ra
 df_rating_yogya_cf.dropna(subset=['Place_Ratings'], inplace=True)
 print(f"Jumlah rating Yogyakarta untuk CF setelah cleaning: {len(df_rating_yogya_cf)}")
 
-print("\n=================== Rekayasa Fitur untuk Content-Based Filtering (CBF) ==============")
+print("\n=================== Rekayasa Fitur dan Vektorisasi TF-IDF untuk CBF ==============")
 df_tourism_yogya['Rating'] = pd.to_numeric(df_tourism_yogya['Rating'], errors='coerce').fillna(df_tourism_yogya['Rating'].median())
 print("Memproses teks menggunakan Sastrawi...")
 stemmer = StemmerFactory().create_stemmer()
@@ -256,15 +259,19 @@ df_tourism_yogya['content_features'] = (df_tourism_yogya['Place_Name'].fillna(''
                                       df_tourism_yogya['Category'].fillna('') + ' ' +
                                       df_tourism_yogya['Description'].fillna('')).apply(lambda x: preprocess_text_sastrawi(x, stemmer, stopword_remover))
 print("Kolom 'content_features' untuk CBF telah dibuat.")
-print(df_tourism_yogya[['Place_Name', 'content_features']].head(2))
+print(df_tourism_yogya[['Place_Name', 'content_features']].head(2).to_string())
 
-print("\n=================== Model Development Dengan Content Based Filtering (CBF) ==============")
-print("=================== Perhitungan TF-IDF dan Cosine Similarity ==============")
+# TF-IDF Vectorization
 tfidf_vectorizer = TfidfVectorizer(min_df=1)
 tfidf_matrix_cbf = tfidf_vectorizer.fit_transform(df_tourism_yogya['content_features'])
+print(f"\nMatriks TF-IDF berhasil dibuat dengan dimensi: {tfidf_matrix_cbf.shape}")
+
+
+print("\n=================== Model Development Dengan Content Based Filtering (CBF) ==============")
+print("=================== Perhitungan Cosine Similarity ==============")
 cosine_sim_cbf = cosine_similarity(tfidf_matrix_cbf)
 results['CBF_tfidf_matrix_shape'] = tfidf_matrix_cbf.shape
-print(f"[CBF] Matriks TF-IDF berhasil dibuat dengan dimensi: {results['CBF_tfidf_matrix_shape']}")
+print(f"[CBF] Matriks Cosine Similarity berhasil dibuat.")
 MODEL_CBF_SUCCESS = True
 
 print("\n=================== Visualisasi Matriks Kesamaan (Cosine Similarity) ==============")
@@ -279,7 +286,8 @@ plt.title('Heatmap Cosine Similarity (Sampel 20 Tempat Pertama)')
 plt.xticks(rotation=90, size=8); plt.yticks(size=8)
 plt.tight_layout()
 plt.savefig(os.path.join(plot_dir, 'heatmap_cosine_similarity.png'))
-print(f"Visualisasi 'Heatmap Cosine Similarity' disimpan di folder '{plot_dir}'.")
+plt.close()
+print(f"Plot 'heatmap_cosine_similarity.png' telah disimpan di folder '{plot_dir}'.")
 
 
 print("\n=================== Uji Coba Model CBF ==============")
@@ -396,7 +404,8 @@ if MODEL_CF_SUCCESS:
     plt.plot(history_data.get('val_loss', []), label='Validation Loss')
     plt.title('Training and Validation Loss'); plt.xlabel('Epoch'); plt.ylabel('Loss'); plt.legend()
     plt.tight_layout()
-    plt.savefig(os.path.join(plot_dir, 'evaluasi_cf_metrics.png'))
+    plt.savefig(os.path.join(plot_dir, 'evaluasi_cf_metrics.png'), bbox_inches='tight')
+    plt.close()
     final_val_rmse = history_data.get('val_root_mean_squared_error', [None])[-1]
     results['CF_Keras_Val_RMSE'] = final_val_rmse
     print(f"  Metrik Evaluasi (Final Validation RMSE): {final_val_rmse:.4f}" if final_val_rmse else "N/A")
@@ -406,22 +415,100 @@ else:
 
 print("\n=================== Evaluasi Model Content-Based Filtering ==============")
 if MODEL_CBF_SUCCESS:
-    print(f"  Evaluasi Kualitatif: Model ini dievaluasi secara kualitatif berdasarkan relevansi item yang direkomendasikan.")
+    print("\n--- Evaluasi Kuantitatif (Performa) ---")
+    def calculate_cbf_metrics(df_rating_yogya, n_recommendations=10):
+        user_counts = df_rating_yogya['User_Id'].value_counts()
+        test_users = user_counts[user_counts >= 2].index.tolist()
+        
+        if len(test_users) > 50:
+            test_users_sample = np.random.choice(test_users, 50, replace=False)
+        else:
+            test_users_sample = test_users
+            
+        if not np.any(test_users_sample):
+            print("Tidak cukup user dengan histori rating yang memadai untuk evaluasi.")
+            return None, None, None
+
+        all_precisions = []
+        all_recalls = []
+
+        for user_id in test_users_sample:
+            liked_places = df_rating_yogya[
+                (df_rating_yogya['User_Id'] == user_id) & (df_rating_yogya['Place_Ratings'] >= 4)
+            ]
+            
+            if len(liked_places) < 2:
+                continue
+
+            seed_place = liked_places.iloc[0]
+            seed_place_id = seed_place['Place_Id']
+            
+            relevant_items = set(liked_places['Place_Id']) - {seed_place_id}
+            
+            if not relevant_items:
+                continue
+
+            recommendations_df = get_content_based_recommendations(
+                place_id_ref=seed_place_id, 
+                n=n_recommendations,
+                cosine_sim_matrix_param=cosine_sim_cbf,
+                tourism_df_param=df_tourism_yogya_cbf_display,
+                id_to_idx_map_param=placeid_to_idx_map_cbf
+            )
+            
+            if isinstance(recommendations_df, pd.DataFrame):
+                recommended_items = set(recommendations_df['Place_Id'])
+                true_positives = len(recommended_items.intersection(relevant_items))
+                precision = true_positives / n_recommendations
+                recall = true_positives / len(relevant_items)
+                
+                all_precisions.append(precision)
+                all_recalls.append(recall)
+
+        if not all_precisions or not all_recalls:
+            return 0, 0, 0
+
+        avg_precision = np.mean(all_precisions)
+        avg_recall = np.mean(all_recalls)
+        
+        f1_score = 0
+        if (avg_precision + avg_recall) > 0:
+            f1_score = 2 * (avg_precision * avg_recall) / (avg_precision + avg_recall)
+            
+        return avg_precision, avg_recall, f1_score
+
+    avg_precision_cbf, avg_recall_cbf, f1_score_cbf = calculate_cbf_metrics(df_rating_yogya_cf)
+
+    if avg_precision_cbf is not None:
+        results['CBF_Precision'] = avg_precision_cbf
+        results['CBF_Recall'] = avg_recall_cbf
+        results['CBF_F1_Score'] = f1_score_cbf
+        
+        print(f"Rata-rata Precision: {avg_precision_cbf:.4f}")
+        print(f"Rata-rata Recall: {avg_recall_cbf:.4f}")
+        print(f"F1-Score: {f1_score_cbf:.4f}")
+    else:
+        print("Perhitungan metrik performa CBF tidak dapat dilakukan.")
+
+    print("\n--- Evaluasi Kualitatif (Relevansi Hasil) ---")
     print(f"  Dimensi Matriks TF-IDF: {results.get('CBF_tfidf_matrix_shape', 'N/A')}")
     recs_cbf_df = results.get('CBF_example_recommendations', pd.DataFrame())
     if isinstance(recs_cbf_df, pd.DataFrame) and not recs_cbf_df.empty:
         print(f"\n  Visualisasi Similarity Score untuk rekomendasi '{results.get('CBF_sample_place_name', 'N/A')}':")
-        plt.figure(figsize=(10, 6))
-        sns.barplot(x='similarity_score', y='Place_Name', data=recs_cbf_df, palette='magma')
-        plt.title(f"Visualisasi Similarity Score"); plt.xlabel('Similarity Score'); plt.ylabel('Nama Tempat Wisata'); plt.xlim(0, 1)
+        plt.figure(figsize=(10, 5))
+        sns.barplot(x='similarity_score', y='Place_Name', data=recs_cbf_df.sort_values('similarity_score', ascending=False), palette='magma')
+        plt.title(f"Visualisasi Similarity Score")
+        plt.xlabel('Similarity Score')
+        plt.ylabel('Nama Tempat Wisata')
+        plt.xlim(0, 1)
         plt.tight_layout()
-        plt.savefig(os.path.join(plot_dir, 'evaluasi_cbf_similarity.png'))
-        print(f"  Visualisasi 'Similarity Score' disimpan di folder '{plot_dir}'.")
+        plt.savefig(os.path.join(plot_dir, 'cbf_evaluation_similarity_score.png'), bbox_inches='tight')
+        plt.close()
+        print(f"  Plot 'cbf_evaluation_similarity_score.png' telah disimpan di folder '{plot_dir}'.")
     else:
         print(f"  Contoh Rekomendasi CBF: Tidak ada atau gagal.")
 else:
     print("  Model CBF tidak berhasil dilatih atau dievaluasi.")
-
 
 print("\n=================== Penyimpanan Model ==============")
 print("=================== Membuat folder saved_model ==============")
@@ -454,5 +541,5 @@ else:
     print("Model CF tidak berhasil, tidak ada yang disimpan.")
 
 print("\n========================================================")
-print("\n============== SEMUA PROSES TELAH SELESAI ==============")
-print("\n========================================================")
+print("============== SEMUA PROSES TELAH SELESAI ==============")
+print("========================================================")
